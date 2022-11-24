@@ -1,3 +1,7 @@
+import React from "react";
+import {Routes, Route} from 'react-router-dom'
+import AboutPage from './components/AboutPage'
+import HomePage from './components/HomePage'
 
 function App() {
   return (
