@@ -57,6 +57,7 @@ const CovidData = () => {
                 </form>
             </div>
 
+            {/* display details for searched country */}
             <div>
                 <p>Country Name: {country}</p>
                 <p>Cases: {cases}</p>
