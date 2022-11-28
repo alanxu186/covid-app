@@ -1,7 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai"
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -24,7 +23,6 @@ const Navbar = () => {
                 </div>
 
                 <ul className="hidden md:flex gap-8 p-6 uppercase bg-white/10 h-20 ">
-                    <li> <Link to={"/main"}>Main</Link> </li>
                     <li> <Link to={"/"}>Home</Link> </li>
                     <li> <Link to={"/about"}>About</Link> </li>
                 </ul>
@@ -32,7 +30,6 @@ const Navbar = () => {
                 <ul className={nav ? 'flex-col flex items-center fixed inset-0 left-1/4 uppercase bg-black/40 backdrop-blur-lg gap-8 justify-center p-8 md:hidden' : 'hidden'}>
                     <AiOutlineClose onClick={handleNav} className='cursor-pointer' />
 
-                    <li> <Link to={"/main"}>Main</Link> </li>
                     <li> <Link to={"/"}>Home</Link> </li>
                     <li> <Link to={"/about"}>About</Link> </li>
                 </ul>
