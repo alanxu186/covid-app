@@ -2,7 +2,7 @@ import React from 'react'
 
 const InfoBox = () => {
     return (
-        <div>InfoBox</div>
+        <div>Show the number of cases</div>
     )
 }
 
