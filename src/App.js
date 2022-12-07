@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {MenuItem, FormControl, Select, Card, CardContent, Menu} from '@mui/material'
+import { MenuItem, FormControl, Select, Card, CardContent, Menu } from '@mui/material'
+import './stylesheets/App.css'
 import { Routes, Route, Form } from 'react-router-dom';
 import AboutPage from './components/AboutPage';
 import HomePage from './components/HomePage';
@@ -83,11 +84,14 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <CovidData /> */}
-      <div className="app_left"></div>
-      <div className="app_header"></div>
-      <h1>COVID-19 TRACKER</h1>
+      <div className="app_left">
+        <div className="app_header">
+          <h1>COVID-19 TRACKER</h1>
+        </div>
+      </div>
+
       <FormControl className="app_dropdown">
         <Select variant="outlined" onChange={onCountryChange} value={country}>
           <MenuItem value="worldwide">Worldwide</MenuItem>
