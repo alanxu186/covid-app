@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {MenuItem, FormControl, Select, Card, CardContent} from '@mui/material'
 import { Routes, Route } from 'react-router-dom';
 import AboutPage from './components/AboutPage';
 import HomePage from './components/HomePage';
@@ -6,6 +7,7 @@ import CovidData from "./components/CovidData";
 import Map from "./components/Map";
 import CovidTable from "./components/CovidTable";
 import InfoBox from "./components/InfoBox";
+// import {sortData, prettyPrintStat} from './components/Util'
 import LineGraph from "./components/LineGraph";
 import Navbar from "./components/Navbar";
 import "leaflet/dist/leaflet.css"
@@ -51,14 +53,14 @@ function App() {
             }
           ));
           // sort data in descending order and setting it to tabledData
-          const sortedData = sortData(data)
-          setTableData(sortedData);
+          // const sortedData = sortData(data)
+          // setTableData(sortedData);
           // data response passed to mapCountries to be used in map component
           setMapCountries(data);
           setCountries(countries)
         })
     }
-    getCountriesData
+    getCountriesData()
   }, [])
 
   // when clicking dropdown, set the value of the selected country and fetch for its info
