@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {MenuItem, FormControl, Select, Card, CardContent} from '@mui/material'
-import { Routes, Route } from 'react-router-dom';
+import {MenuItem, FormControl, Select, Card, CardContent, Menu} from '@mui/material'
+import { Routes, Route, Form } from 'react-router-dom';
 import AboutPage from './components/AboutPage';
 import HomePage from './components/HomePage';
 import CovidData from "./components/CovidData";
@@ -85,6 +85,18 @@ function App() {
     <div className="App">
       <Navbar />
       {/* <CovidData /> */}
+      <div className="app_left"></div>
+      <div className="app_header"></div>
+      <h1>COVID-19 TRACKER</h1>
+      <FormControl className="app_dropdown">
+        <Select variant="outlined" onChange={onCountryChange} value={country}>
+          <MenuItem value="worldwide">Worldwide</MenuItem>
+          {countries.map(country => {
+            <MenuItem value={country.value}>{country.name}</MenuItem>
+          })
+          }
+        </Select>
+      </FormControl>
     </div>
   );
 }
