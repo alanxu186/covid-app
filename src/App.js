@@ -8,7 +8,7 @@ import CovidData from "./components/CovidData";
 import Map from "./components/Map";
 import CovidTable from "./components/CovidTable";
 import InfoBox from "./components/InfoBox";
-// import {sortData, prettyPrintStat} from './components/Util'
+import { sortData, prettyPrintStat } from './components/Util'
 import LineGraph from "./components/LineGraph";
 import Navbar from "./components/Navbar";
 import "leaflet/dist/leaflet.css"
@@ -47,15 +47,15 @@ function App() {
         .then((res) => res.json())
         .then((data) => {
           //store country's name and value
-          const countries = countries.map((country) => (
+          const countries = data.map((country) => (
             {
               name: country.country,
               value: country.countryInfo.iso2
             }
           ));
           // sort data in descending order and setting it to tabledData
-          // const sortedData = sortData(data)
-          // setTableData(sortedData);
+          const sortedData = sortData(data)
+          setTableData(sortedData);
           // data response passed to mapCountries to be used in map component
           setMapCountries(data);
           setCountries(countries)
@@ -99,7 +99,17 @@ function App() {
             </Select>
           </FormControl>
         </div>
+        <div className="app_stats">
+          <InfoBox isRed={true} active={caseTypes === 'cases'} onClick={e => setCaseTypes('cases')} title='Coronavirus cases' total={prettyPrintStat(countryInfo.cases)} cases={prettyPrintStat(countryInfo.todayCases)}></InfoBox>
+
+
+          
+        </div>
       </div>
+
+
+
+
 
     </div>
   );

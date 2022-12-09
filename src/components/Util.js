@@ -61,6 +61,6 @@ export const showDataOnMap = (data, casesType = 'cases') => {
 };
 
 //if there is any info to show in infoBox, show it in prettier format
-export const prettyPrintStat = (stat) => {
+export const prettyPrintStat = (stat) =>
     stat ? `+${numeral(stat).format('0,0a')}` : "+0";
-}
+
