@@ -22,6 +22,7 @@ const casesTypeColors = {
 //function to sort data response
 export const sortData = (data) => {
     const sortedData = [...data];
+    // sort the array of data received 
     sortedData.sort((a, b) => {
         if (a.cases > b.cases) {
             return -1;
