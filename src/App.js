@@ -103,7 +103,7 @@ function App() {
           <InfoBox isRed={true} active={caseTypes === 'cases'} onClick={e => setCaseTypes('cases')} title='Coronavirus cases' total={prettyPrintStat(countryInfo.cases)} cases={prettyPrintStat(countryInfo.todayCases)}></InfoBox>
 
 
-          
+          <Map caseTypes={caseTypes} countries={mapCountries} center={mapCenter} zoom={mapZoom}></Map>
         </div>
       </div>
 
