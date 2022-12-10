@@ -6,15 +6,15 @@ const InfoBox = ({ title, cases, total, isRed, active }) => {
 
     console.log(active)
     return (
-            <Card>
+            <Card className={`infoBox ${active && 'infoBox--selected'} ${isRed && 'infoBox--red'}`}>
                 <CardContent>
-                    <Typography>
+                    <Typography className='infoBox_title' color='text-Secondary'>
                         {title}
                     </Typography>
-                    <h2>
+                    <h2 className={`infoBox_cases ${!isRed && 'infoBox_cases--green'}`}>
                         {cases}
                     </h2>
-                    <Typography>
+                    <Typography color='textSecondary'>
                         {total}
                     </Typography>
                 </CardContent>
