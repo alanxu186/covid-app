@@ -30,7 +30,7 @@ function App() {
   // store array of list of countries present in map
   const [mapCountries, setMapCountries] = useState([]);
   // style components based on cases, recovered, deaths 
-  const [caseTypes, setCaseTypes] = useState('cases');
+  const [casesType, setCasesType] = useState('cases');
 
   //fetch from covid api
   useEffect(() => {
@@ -100,13 +100,28 @@ function App() {
           </FormControl>
         </div>
         <div className="app_stats">
-          <InfoBox isRed={true} active={caseTypes === 'cases'} onClick={e => setCaseTypes('cases')} title='Coronavirus cases' total={prettyPrintStat(countryInfo.cases)} cases={prettyPrintStat(countryInfo.todayCases)}></InfoBox>
+          <InfoBox isRed={true} active={casesType === 'cases'} onClick={e => setCasesType('cases')} title='Coronavirus cases' total={prettyPrintStat(countryInfo.cases)} cases={prettyPrintStat(countryInfo.todayCases)}></InfoBox>
+          <InfoBox isRed={false} active={casesType === 'recovered'} onClick={e => setCasesType('recovered')} title='Recovered' total={prettyPrintStat(countryInfo.recovered)}></InfoBox>
+          <InfoBox isRed={true} active={casesType === 'deaths'} onClick={e => setCasesType('deaths')} title='Deaths' total={prettyPrintStat(countryInfo.todayDeaths)}></InfoBox>
 
 
-          <Map caseTypes={caseTypes} countries={mapCountries} center={mapCenter} zoom={mapZoom}></Map>
         </div>
+
+        <Map casesTypes={casesType} countries={mapCountries} center={mapCenter} zoom={mapZoom}></Map>
+
       </div>
 
+      <div>
+        <Card className="app_right">
+          <CardContent>
+            <h3>Live Content by Country</h3>
+            <CovidTable countries={tableData}>
+            </CovidTable>
+            <h3>Worldwide new {casesType}</h3>
+            <LineGraph className="app_graph" casesType={casesType}></LineGraph>
+          </CardContent>
+        </Card>
+      </div>
 
 
 
