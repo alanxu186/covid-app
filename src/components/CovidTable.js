@@ -8,14 +8,16 @@ const CovidTable = ({ countries }) => {
 
     return (
         <div className='table'>
-            {countries.map((country, cases) => (
-                <tr>
-                    <td>{country.country}</td>
-                    <td><strong>{numeral(cases).format()}</strong></td>
-                </tr>
-            )
+            <tbody>
+                {countries.map((country, cases, key) => (
+                    <tr key={key}>
+                        <td>{country.country}</td>
+                        <td><strong>{numeral(country.cases).format()}</strong></td>
+                    </tr>
+                )
 
-            )}
+                )}
+            </tbody>
         </div>
     )
 }
