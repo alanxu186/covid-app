@@ -1,8 +1,20 @@
-import React from 'react'
+import React from 'react';
+import '../stylesheets/CovidTable.css';
+import numeral from 'numeral';
 
-const CovidTable = () => {
+const CovidTable = ({ countries }) => {
+    
+    console.log(countries)
+
     return (
-        <div>CovidTable</div>
+        <div className='table'>
+            {countries.map(({ country, cases }) => {
+                <tr>
+                    <td>{country}</td>
+                    <td><strong>{numeral(cases).format()}</strong></td>
+                </tr>
+            })}
+        </div>
     )
 }
 
