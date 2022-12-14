@@ -4,12 +4,12 @@ import numeral from 'numeral';
 
 const CovidTable = ({ countries }) => {
 
-    console.log(countries)
+    // console.log(countries)
 
     return (
-        <div className='table'>
+        <table className='table'>
             <tbody>
-                {countries.map((country, cases, key) => (
+                {countries.map((country, key) => (
                     <tr key={key}>
                         <td>{country.country}</td>
                         <td><strong>{numeral(country.cases).format()}</strong></td>
@@ -18,7 +18,7 @@ const CovidTable = ({ countries }) => {
 
                 )}
             </tbody>
-        </div>
+        </table>
     )
 }
 
