@@ -3,7 +3,7 @@ import '../stylesheets/CovidTable.css';
 import numeral from 'numeral';
 
 const CovidTable = ({ countries }) => {
-
+    
     // console.log(countries)
 
     return (
